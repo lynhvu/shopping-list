@@ -10,7 +10,7 @@
     max-width: 500px;
     margin: 30px auto;
     padding: 20px;
-
+    align-items: center;
 }
 
 body {
@@ -32,6 +32,7 @@ header{
 header h1 {
     font-weight: 300;
     margin-left: 10px;
+    align-items: center;
 }
 
 #logo {
