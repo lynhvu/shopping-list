@@ -1,11 +1,21 @@
-function addItem () {
-    let form = document.getElementById("add-item");
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        let item = document.getElementById('item-input').value;
-        console.log(item);
-        document.getElementById("item-display").innerHTML = item;
-        alert("Submitted");
-    })
-
-} 
+document.addEventListener("DOMContentLoaded", function() {
+    const itemList = [];
+  
+    const getItem = document.getElementById("add-item");
+  
+    function display(itemList) {
+      document.getElementById("item-display").innerHTML = itemList.length;
+    }
+  
+    getItem.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const input = document.getElementById('item-input').value;
+      const item = input;
+      console.log(item);
+      itemList.push(item);
+      console.log(itemList);
+      display(itemList);
+      alert("Added " + item);
+    });
+});
+  
