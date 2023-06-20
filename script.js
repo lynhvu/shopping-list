@@ -8,8 +8,8 @@ const itemFilter = document.getElementById('filter');
 const formBtn = itemForm.querySelector('button');
 let isEditMode = false;
 
-/* Implement the functions before they get called */
 
+/* Implement the functions before they get called */
 
 function displayItems() {
  const itemsFromStorage = getItemsFromStorage();
@@ -24,11 +24,22 @@ function addItem(e) {
   e.preventDefault();
   let newItem = itemInput.value;
   newItem = newItem.charAt(0).toUpperCase() + newItem.slice(1); // Capitalize the first letter
-  console.log(newItem);
+ 
+
   // Validate Input
   if (newItem === '') {
     alert('Please add an item');
     return;
+  }
+
+  // Check for edit mode
+  if (isEditMode) {
+    const itemToEdit = itemList.querySelector('.edit-mode');
+
+    removeItemFromStorage(itemToEdit.textContent);
+    itemToEdit.classList.remove('edit-mode');
+    itemToEdit.remove();
+    isEditMode = false;
   }
 
   // Create item DOM element
@@ -97,6 +108,7 @@ function onClickItem(e) {
 function setItemToEdit(item) {
   isEditMode = true;
 
+  // Reset the other item to normal when a new item is clicked
   itemList
     .querySelectorAll('li')
     .forEach((i) => i.classList.remove('edit-mode'));
@@ -160,6 +172,7 @@ function filterItems(e) {
 
 function checkUI() {
   const items = itemList.querySelectorAll('li');
+
   if (items.length === 0) {
     clearBtn.style.display = 'none';
     itemFilter.style.display = 'none';
@@ -167,6 +180,10 @@ function checkUI() {
     clearBtn.style.display = 'block';
     itemFilter.style.display = 'block';
   }
+
+  formBtn.innerHTML = '<i class="fa fa-plus" aria-hidden="true"></i>Add Item';
+  formBtn.style.backgroundColor = '#333';
+  isEditMode = false;
 }
 
 /* Initialize app */
