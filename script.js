@@ -5,6 +5,7 @@ const itemInput = document.getElementById('item-input');
 const itemList = document.getElementById('item-list');
 const clearBtn = document.getElementById('clear');
 const itemFilter = document.getElementById('filter');
+const defaultMsg = document.getElementById('default');
 const formBtn = itemForm.querySelector('button');
 let isEditMode = false;
 
@@ -40,6 +41,11 @@ function addItem(e) {
     itemToEdit.classList.remove('edit-mode');
     itemToEdit.remove();
     isEditMode = false;
+  } else {
+    if(checkIfItemExist(newItem)) {
+      alert('That item already exists!');
+      return;
+    }
   }
 
   // Create item DOM element
@@ -102,7 +108,11 @@ function onClickItem(e) {
   } else {
     setItemToEdit(e.target);
   }
+}
 
+function checkIfItemExist(item) {
+  const itemsFromStorage = getItemsFromStorage();
+  return itemsFromStorage.includes(item);
 }
 
 function setItemToEdit(item) {
@@ -176,9 +186,11 @@ function checkUI() {
   if (items.length === 0) {
     clearBtn.style.display = 'none';
     itemFilter.style.display = 'none';
+    defaultMsg.style.display = 'block';
   } else {
     clearBtn.style.display = 'block';
     itemFilter.style.display = 'block';
+    defaultMsg.style.display = 'none';
   }
 
   formBtn.innerHTML = '<i class="fa fa-plus" aria-hidden="true"></i>Add Item';

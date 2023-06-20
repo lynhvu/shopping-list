@@ -131,3 +131,12 @@ header h1 {
 .edit-mode {
     color: #ccc;
 }
+
+.default-text {
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    font-size: 18px;
+    text-align: center;
+}
