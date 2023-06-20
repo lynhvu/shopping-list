@@ -127,3 +127,7 @@ header h1 {
     margin: 0 5px 20px;
     font-weight: 700;
 }
+
+.edit-mode {
+    color: #ccc;
+}
