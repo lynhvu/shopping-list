@@ -1,5 +1,6 @@
 # shopping-list
-
+Created by Linh Vu
+June 2023
 ---
 
 ## Features
@@ -17,5 +18,5 @@
 
 ## Demo
 
-You can see a live demo of the shopping list project [here]([https://your-username.github.io/shopping-list](https://lynhvu.github.io/shopping-list/)https://lynhvu.github.io/shopping-list/).
+You can see a live demo of the shopping list project [here](https://lynhvu.github.io/shopping-list/).
 
