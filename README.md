@@ -1,7 +1,8 @@
 # shopping-list
-Created by Linh Vu
-June 2023
 ---
+
+Created by Linh Vu <br>
+June 2023
 
 ## Features
 
