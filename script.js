@@ -1,12 +1,17 @@
+/* Create variables to get the ID to use for eventListener */
+
 const itemForm = document.getElementById('item-form');
 const itemInput = document.getElementById('item-input');
 const itemList = document.getElementById('item-list');
+const clearBtn = document.getElementById('clear');
+
+
+/* Implement the functions before they get called */
 
 function addItem(e) {
   e.preventDefault();
-
   const newItem = itemInput.value;
-  //Validate Input
+  // Validate Input
   if (newItem === '') {
     alert('Please add an item');
     return;
@@ -35,5 +40,19 @@ function createIcon(classes) {
   return icon;
 }
 
-// Event Listeners
+function removeItem(e) {
+  if (e.target.parentElement.classList.contains('remove-item')) {
+    e.target.parentElement.parentElement.remove();
+  }
+}
+
+function clearItems(e) {
+  while (itemList.firstChild) {
+    itemList.removeChild(itemList.firstChild);
+  }
+}
+
+/* Event Listeners ('action', function) */
 itemForm.addEventListener('submit', addItem);
+itemList.addEventListener('click', removeItem);
+clearBtn.addEventListener('click', clearItems);
