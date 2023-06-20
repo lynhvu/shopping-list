@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css"/>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Shopping list</title>
 </head>
 <body>
@@ -14,9 +14,8 @@
             <img src="https://www.pngkit.com/png/detail/253-2534454_my-shopping-cart-comments-shopping-cart-icon-in.png" id="logo"/>
             <h1>Shopping List</h1>
         </header>
-    </div>
-    <div class="add">
-        <form id="add-item">
+
+        <form id="item-form">
             <div class="form-control">
                 <input 
                 type="text"
@@ -24,29 +23,38 @@
                 id="item-input"
                 name="search"
                 placeholder="Enter Item"
-                
                 />
             </div>
             <div class="form-control">
                 <button type="submit" class="btn">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
                     Add Item
                 </button>
 
             </div>
 
         </form>
-    </div>
-    <div class="filter">
-        <input
-        type="text"
-        class="form-input-filter"
-        id="filter"
-        placeholder="Filter Items"/>
 
-    </div>
-    <div class="items" id="item-display">
+        <div class="filter">
+            <input
+            type="text"
+            class="form-input-filter"
+            id="filter"
+            placeholder="Filter Items"/>
+    
+        </div>
+        <ul id="item-list" class="items">
+            <li>
+                Apples
+                <button class="remove-item btn-link text-red">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </li>
+        </ul>
 
-
+        <button id="clear" class="btn-clear">Clear All</button>
     </div>
+    
+   
 </body>
 </html>
